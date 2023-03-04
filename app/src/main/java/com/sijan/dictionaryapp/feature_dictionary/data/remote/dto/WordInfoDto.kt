@@ -1,5 +1,6 @@
 package com.sijan.dictionaryapp.feature_dictionary.data.remote.dto
 
+import com.sijan.dictionaryapp.feature_dictionary.data.local.entity.WordInfoEntity
 import com.sijan.dictionaryapp.feature_dictionary.domain.model.WordInfo
 
 data class WordInfoDto(
@@ -10,12 +11,13 @@ data class WordInfoDto(
     val word: String
 )
 {
-    fun toWordInfo(): WordInfo {
-        return WordInfo(
+    fun toWordInfoEntity(): WordInfoEntity {
+        return WordInfoEntity(
             meanings= meanings.map { it.toMeaning() },
             origin = origin,
             phonetic = phonetic,
             word=word
         )
     }
+
 }
